@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "name-recommender",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

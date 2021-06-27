@@ -1,0 +1,7 @@
+{
+  "name": "name-recommender",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
