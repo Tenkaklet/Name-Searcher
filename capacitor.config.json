@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "name-recommender",
+	"appId": "com.tenkaklet.namesearcher",
+	"appName": "Name Searcher",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

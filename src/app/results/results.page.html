@@ -1,0 +1,71 @@
+<!-- Default back button -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <ion-list-header class="ion-padding">
+      <ion-label>Choose three words that describe what you want out of your application</ion-label>
+    </ion-list-header>
+    <h1 class="ion-tex-center">Results for {{ result }}</h1>
+  </div>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Similar Meaning</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let words of results" (click)="chooseName(words.word)">
+        <ion-label>
+          {{words.word}}
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Adjectives to {{ result }}</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let words of adjectives" button (click)="chooseName(words.word)">
+        <ion-label>
+          {{words.word}}
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Related Starting with Letter {{ firstLetter }}</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let words of relatedWords" button (click)="chooseName(words.word)">
+        <ion-label>
+          {{words.word}}
+        </ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="footer">
+  <ion-item-divider>
+    <ion-label color="dark">Chosen Words</ion-label>
+  </ion-item-divider>
+  <ion-item-group *ngIf="words.length <= 3">
+    <p class="ion-text-center" *ngIf="selected">Please choose some words</p>
+    <ion-item *ngFor="let selected of words">
+      <ion-label>{{ selected }}</ion-label>
+      <ion-button color="danger" (click)="removeWord(selected)">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        Left Icon
+      </ion-button>
+    </ion-item>
+  </ion-item-group>
+  <!-- <ion-item *ngIf="words.length === 3">
+    you have chosen three words
+  </ion-item> -->
+
+</ion-footer>

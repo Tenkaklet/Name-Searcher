@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  sentence: any;
+  constructor(private router: Router) {}
+
+  getChange(e) {
+    const searchable = e;
+    console.log(searchable);
+    if (searchable === '') {
+      return;
+    }
+
+    this.router.navigateByUrl('results/' + searchable);
+  }
 
 }
